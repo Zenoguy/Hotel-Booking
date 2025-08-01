@@ -16,7 +16,6 @@ const BookingCTA: React.FC = () => {
     const content = contentRef.current;
 
     if (section && background && content) {
-      // Parallax background effect
       gsap.to(background, {
         yPercent: -30,
         ease: "none",
@@ -28,8 +27,8 @@ const BookingCTA: React.FC = () => {
         }
       });
 
-      // Content animation
-      gsap.fromTo(content,
+      gsap.fromTo(
+        content,
         { y: 80, opacity: 0 },
         {
           y: 0,
@@ -47,23 +46,28 @@ const BookingCTA: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative py-40 lg:py-56 overflow-hidden">
       {/* Parallax Background */}
-      <div
-        ref={backgroundRef}
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
-        }}
-      />
+<div
+  ref={backgroundRef}
+  className="absolute top-0 left-0 w-full h-[150%] bg-cover bg-center"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+  }}
+/>
 
-      <div className="relative z-10 container mx-auto px-6">
+
+      {/* Smooth scroll gradient overlays */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />
+
+      <div className="relative z-30 container mx-auto px-6">
         <div ref={contentRef} className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-6xl font-light tracking-wide mb-8">
             Reserve Your Stay
             <span className="block text-amber-400 font-extralight">Now</span>
           </h2>
-          
+
           <p className="text-xl md:text-2xl font-light tracking-wide mb-12 max-w-2xl mx-auto leading-relaxed">
             Experience luxury like never before. Book your unforgettable escape to paradise.
           </p>
@@ -115,7 +119,7 @@ const BookingCTA: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <button className="group bg-amber-600 text-white px-12 py-4 text-lg font-light tracking-widest hover:bg-amber-700 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl inline-flex items-center">
+            <button className="group bg-amber-600 text-white px-12 py-4 text-lg font-light tracking-widest hover:bg-amber-700 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl inline-flex items-center relative overflow-hidden">
               <span className="relative z-10">CHECK AVAILABILITY</span>
               <ArrowRight className="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" />
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>

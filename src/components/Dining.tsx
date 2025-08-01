@@ -140,11 +140,11 @@ const Dining: React.FC = () => {
 
         {/* Restaurant Info */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="text-white">
-            <h3 className="text-3xl font-light tracking-wide mb-6">
+         <div className="bg-black/60 backdrop-blur-sm p-6 rounded-xl">
+            <h3 className="text-3xl font-light tracking-wide text-white mb-6">
               Oceanfront Dining Experience
             </h3>
-            <div className="space-y-4 text-gray-200 leading-relaxed">
+            <div className="space-y-4 text-gray-100 leading-relaxed">
               <p>
                 Our beachside restaurant offers an intimate dining experience with panoramic 
                 views of the Bay of Bengal. Watch the sunset while savoring expertly crafted 
@@ -159,24 +159,29 @@ const Dining: React.FC = () => {
             <div className="grid grid-cols-2 gap-8 mt-8">
               <div>
                 <div className="text-2xl font-light text-amber-400 mb-2">6:30 AM - 11:00 PM</div>
-                <div className="text-sm tracking-wide text-gray-300">DINING HOURS</div>
+                <div className="text-sm tracking-wide text-gray-200">DINING HOURS</div>
               </div>
               <div>
                 <div className="text-2xl font-light text-amber-400 mb-2">3 RESTAURANTS</div>
-                <div className="text-sm tracking-wide text-gray-300">DINING OPTIONS</div>
+                <div className="text-sm tracking-wide text-gray-200">DINING OPTIONS</div>
               </div>
             </div>
           </div>
 
+
           <div className="relative">
             <div
-              className="aspect-[4/5] bg-cover bg-center rounded-lg shadow-2xl"
+              className="aspect-[4/5] bg-center bg-no-repeat bg-cover rounded-lg shadow-2xl"
               style={{
-                backgroundImage: `url('https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop')`
+                backgroundImage: `
+                  linear-gradient(to right, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%),
+                  url('https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop')
+                `
               }}
             />
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-400 rounded-lg opacity-20"></div>
           </div>
+
         </div>
       </div>
     </section>
