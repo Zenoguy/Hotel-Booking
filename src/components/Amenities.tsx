@@ -30,8 +30,7 @@ const Amenities: React.FC = () => {
   const titleRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
-
-  useEffect(() => {
+useEffect(() => {
     const section = sectionRef.current;
     const title = titleRef.current;
     const grid = gridRef.current;
@@ -42,7 +41,7 @@ const Amenities: React.FC = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.6, // Reduced duration
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
@@ -60,8 +59,8 @@ const Amenities: React.FC = () => {
               y: 0,
               opacity: 1,
               scale: 1,
-              duration: 0.8,
-              delay: index * 0.1,
+              duration: 0.5, // Reduced duration
+              delay: index * 0.05, // Reduced staggered delay
               ease: "back.out(1.7)",
               scrollTrigger: {
                 trigger: item,

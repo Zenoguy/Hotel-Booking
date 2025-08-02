@@ -60,13 +60,13 @@ const Dining: React.FC = () => {
         }
       });
 
-      // Content animation with performance optimizations
+      // Content animation with puseEffecerformance optimizations
       gsap.fromTo(content,
         { y: 100, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1.2,
+          duration: 0.6,
           ease: "power3.out",
           force3D: true, // Hardware acceleration
           scrollTrigger: {
@@ -97,7 +97,7 @@ const Dining: React.FC = () => {
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.5,
               ease: "power3.out",
               force3D: true
             },

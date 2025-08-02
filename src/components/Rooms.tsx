@@ -42,7 +42,7 @@ const Rooms: React.FC = () => {
       gsap.fromTo(title, { y: 50, opacity: 0 }, {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
@@ -56,8 +56,8 @@ const Rooms: React.FC = () => {
           gsap.fromTo(card, { opacity: 0, y: 80 }, {
             opacity: 1,
             y: 0,
-            duration: 1,
-            delay: index * 0.2,
+            duration: 0.5,
+            delay: index * 0.05,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: card,
