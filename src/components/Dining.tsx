@@ -34,19 +34,33 @@ const Dining: React.FC = () => {
     const content = contentRef.current;
 
     if (section && background && content) {
-      // Parallax background effect
-      gsap.to(background, {
-        yPercent: -50,
+      // Set CSS properties for better performance
+      gsap.set(background, { 
+        willChange: "transform",
+        force3D: true 
+      });
+
+      // Optimized parallax background effect
+      const parallaxTween = gsap.to(background, {
+        yPercent: -30, // Reduced from -50 for smoother performance
         ease: "none",
         scrollTrigger: {
           trigger: section,
           start: "top bottom",
           end: "bottom top",
-          scrub: true
+          scrub: 1, // Added small scrub value for smoothness instead of true
+          invalidateOnRefresh: true, // Recalculate on content changes
+          refreshPriority: -1, // Lower priority to avoid conflicts
+          onUpdate: () => {
+            // Force hardware acceleration
+            if (background) {
+              background.style.transform = background.style.transform + ' translateZ(0)';
+            }
+          }
         }
       });
 
-      // Content animation
+      // Content animation with performance optimizations
       gsap.fromTo(content,
         { y: 100, opacity: 0 },
         {
@@ -54,45 +68,109 @@ const Dining: React.FC = () => {
           opacity: 1,
           duration: 1.2,
           ease: "power3.out",
+          force3D: true, // Hardware acceleration
           scrollTrigger: {
             trigger: section,
             start: "top 70%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none reverse",
+            invalidateOnRefresh: true
           }
         }
       );
 
-      // Dishes animation
+      // Dishes animation with stagger and performance optimization
+      const dishTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 60%",
+          toggleActions: "play none none reverse",
+          invalidateOnRefresh: true
+        }
+      });
+
       dishesRef.current.forEach((dish, index) => {
         if (dish) {
-          gsap.fromTo(dish,
+          gsap.set(dish, { force3D: true }); // Pre-set hardware acceleration
+          
+          dishTimeline.fromTo(dish,
             { y: 60, opacity: 0 },
             {
               y: 0,
               opacity: 1,
               duration: 1,
-              delay: index * 0.2,
               ease: "power3.out",
-              scrollTrigger: {
-                trigger: dish,
-                start: "top 85%",
-                toggleActions: "play none none reverse"
-              }
-            }
+              force3D: true
+            },
+            index * 0.15 // Slightly faster stagger
           );
         }
       });
+
+      // Refresh ScrollTrigger when component mounts (handles dynamic content)
+      const refreshTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      // Cleanup function
+      return () => {
+        clearTimeout(refreshTimer);
+        parallaxTween.kill();
+        dishTimeline.kill();
+        ScrollTrigger.getAll().forEach(trigger => {
+          if (trigger.trigger === section) {
+            trigger.kill();
+          }
+        });
+      };
     }
+  }, []);
+
+  // Additional effect to handle page resize/content changes
+  useEffect(() => {
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleLoad);
+
+    // Refresh after images load
+    const images = document.querySelectorAll('img');
+    let loadedCount = 0;
+    
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === images.length) {
+            ScrollTrigger.refresh();
+          }
+        });
+      }
+    });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', handleLoad);
+    };
   }, []);
 
   return (
     <section ref={sectionRef} id="dining" className="relative py-24 overflow-hidden">
-      {/* Parallax Background */}
+      {/* Optimized Parallax Background */}
       <div
         ref={backgroundRef}
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
+          backfaceVisibility: 'hidden', // Prevent flickering
+          perspective: 1000, // Enable 3D rendering context
         }}
       />
 
@@ -118,11 +196,17 @@ const Dining: React.FC = () => {
                 if (el) dishesRef.current[index] = el;
               }}
               className="group bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/20 transition-all duration-500"
+              style={{
+                backfaceVisibility: 'hidden', // Prevent flickering during animation
+              }}
             >
               <div className="relative overflow-hidden">
                 <div
                   className="aspect-[4/3] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${dish.image}')` }}
+                  style={{ 
+                    backgroundImage: `url('${dish.image}')`,
+                    backfaceVisibility: 'hidden' // Smooth hover animation
+                  }}
                 />
                 <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-10 transition-opacity duration-500"></div>
               </div>
@@ -168,7 +252,6 @@ const Dining: React.FC = () => {
             </div>
           </div>
 
-
           <div className="relative">
             <div
               className="aspect-[4/5] bg-center bg-no-repeat bg-cover rounded-lg shadow-2xl"
@@ -176,7 +259,8 @@ const Dining: React.FC = () => {
                 backgroundImage: `
                   linear-gradient(to right, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%),
                   url('https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop')
-                `
+                `,
+                backfaceVisibility: 'hidden'
               }}
             />
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-400 rounded-lg opacity-20"></div>

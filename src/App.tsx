@@ -5,6 +5,7 @@ import About from './components/About';
 import Rooms from './components/Rooms';
 import Dining from './components/Dining';
 import Amenities from './components/Amenities';
+import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Location from './components/Location';
 import BookingCTA from './components/BookingCTA';
@@ -22,6 +23,7 @@ function App() {
       <Rooms />
       <Dining />
       <Amenities />
+       <Gallery />
       <Testimonials />
       <Location />
       <BookingCTA />
