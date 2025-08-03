@@ -96,8 +96,8 @@ const Location: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-light tracking-wide text-gray-900 mb-1 sm:mb-2">Email</h3>
-                  <p className="text-sm sm:text-base text-gray-600">reservations@uniquehotelpuri.com</p>
-                  <p className="text-sm sm:text-base text-gray-600">info@uniquehotelpuri.com</p>
+                  <p className="text-sm sm:text-base text-gray-600">reservations@zenohotelpuri.com</p>
+                  <p className="text-sm sm:text-base text-gray-600">info@zenohotelpuri.com</p>
                 </div>
               </div>
 
@@ -127,7 +127,7 @@ const Location: React.FC = () => {
                 <div className="text-center">
                   <MapPin className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-blue-500 mx-auto mb-3 sm:mb-4" />
                   <p className="text-blue-700 font-light text-sm sm:text-base">Interactive Map</p>
-                  <p className="text-blue-600 text-xs sm:text-sm">Unique Hotel Puri</p>
+                  <p className="text-blue-600 text-xs sm:text-sm">Zeno Hotel Puri</p>
                 </div>
               </div>
             </div>

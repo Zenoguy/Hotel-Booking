@@ -20,7 +20,7 @@ const testimonials = [
     name: 'Emma Thompson',
     location: 'London, UK',
     rating: 5,
-    text: 'I have stayed at luxury hotels worldwide, but Unique Hotel Puri stands out. The spa treatments were divine, and the beachfront location is unmatched.',
+    text: 'I have stayed at luxury hotels worldwide, but Zeno Hotel Puri stands out. The spa treatments were divine, and the beachfront location is unmatched.',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'
   },
   {
@@ -115,7 +115,7 @@ const Testimonials: React.FC = () => {
             </h2>
             <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-400 mx-auto mb-4 sm:mb-6 md:mb-8"></div>
             <p className="text-base sm:text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed drop-shadow-sm px-4">
-              Discover what our guests say about their unforgettable experiences at Unique Hotel Puri.
+              Discover what our guests say about their unforgettable experiences at Zeno Hotel Puri.
             </p>
           </div>
 

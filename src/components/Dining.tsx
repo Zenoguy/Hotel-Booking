@@ -177,7 +177,7 @@ const Dining: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 max-w-full">
         <div ref={contentRef} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white mb-4 sm:mb-6">
-            Fine Dining at <span className="text-amber-400">Unique</span>
+            Fine Dining at <span className="text-amber-400">Zeno</span>
           </h2>
           <div className="w-16 sm:w-20 md:w-24 h-1 bg-amber-400 mx-auto mb-6 sm:mb-8"></div>
           <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed px-4">

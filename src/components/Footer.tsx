@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="sm:col-span-2 md:col-span-2">
             <div className="text-2xl sm:text-3xl font-light tracking-wider mb-4 sm:mb-6">
-              UNIQUE HOTEL
+              Zeno HOTEL
               <span className="text-amber-400 ml-2">PURI</span>
             </div>
             <p className="text-gray-400 leading-relaxed mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
@@ -57,11 +57,11 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 flex-shrink-0" />
-                <div className="text-xs sm:text-sm text-gray-400">+91 674 123 4567</div>
+                <div className="text-xs sm:text-sm text-gray-400">+91 XXX XXX XXXX</div>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 flex-shrink-0" />
-                <div className="text-xs sm:text-sm text-gray-400">info@uniquehotelpuri.com</div>
+                <div className="text-xs sm:text-sm text-gray-400">info@Zenohotelpuri.com</div>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-xs sm:text-sm text-gray-400 mb-3 md:mb-0 text-center md:text-left">
-            © 2025 Unique Hotel Puri. All rights reserved.
+            © 2025 Zeno Hotel Puri. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-400">
             <a href="#" className="hover:text-amber-400 transition-colors duration-300">Privacy Policy</a>

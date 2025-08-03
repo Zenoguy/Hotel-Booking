@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
             ref={titleRef}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wider mb-4 sm:mb-6 leading-tight"
           >
-            UNIQUE HOTEL
+            ZENO HOTEL
             <span className="block text-amber-400 font-extralight">PURI</span>
           </h1>
           

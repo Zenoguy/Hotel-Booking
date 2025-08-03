@@ -73,13 +73,13 @@ const About: React.FC = () => {
 
             <div className="space-y-4 sm:space-y-6 text-gray-600 leading-relaxed">
               <p className="text-base sm:text-lg">
-                Nestled along the pristine shores of Puri, Unique Hotel stands as a beacon of 
+                Nestled along the pristine shores of Puri, Zeno Hotel stands as a beacon of 
                 contemporary luxury and timeless elegance. Our carefully curated spaces blend 
                 modern sophistication with the natural beauty of the Bay of Bengal.
               </p>
               
               <p className="text-sm sm:text-base">
-                Each moment at Unique Hotel is designed to create lasting memories. From our 
+                Each moment at Zeno Hotel is designed to create lasting memories. From our 
                 world-class amenities to our personalized service, we ensure that every guest 
                 experiences the perfect harmony of comfort and luxury.
               </p>

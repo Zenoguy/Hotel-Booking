@@ -23,7 +23,7 @@ const Header: React.FC = () => {
             <span className={`transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
-              UNIQUE HOTEL
+              ZENO HOTEL
             </span>
             <span className="text-amber-600 ml-2">PURI</span>
           </div>
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-2">
               <Phone className={`w-4 h-4 ${isScrolled ? 'text-gray-600' : 'text-white'}`} />
               <span className={`text-sm ${isScrolled ? 'text-gray-600' : 'text-white'}`}>
-                +91 674 123 4567
+                +91 XXX XXX XXXX
               </span>
             </div>
             <button className="bg-amber-600 text-white px-6 py-2 text-sm font-light tracking-wide hover:bg-amber-700 transition-colors duration-300">

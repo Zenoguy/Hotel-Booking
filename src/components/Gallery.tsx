@@ -45,7 +45,7 @@ const galleryImages: GalleryImage[] = [
     aspectRatio: 'aspect-[3/4]'
   },
   {
-    src: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
+    src: 'https://images.pexels.com/photos/4321845/pexels-photo-4321845.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
     title: 'Deluxe Room Interior',
     description: 'Elegant furnishings with modern amenities',
     aspectRatio: 'aspect-video',
@@ -162,7 +162,7 @@ const Gallery: React.FC = () => {
           </h2>
           <div className="w-16 sm:w-20 md:w-24 h-1 bg-amber-600 mx-auto mb-6 sm:mb-8"></div>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
-            Explore the beauty and elegance of Unique Hotel Puri through our curated 
+            Explore the beauty and elegance of Zeno Hotel Puri through our curated 
             collection of spaces, amenities, and experiences.
           </p>
         </div>
@@ -230,7 +230,7 @@ const Gallery: React.FC = () => {
         >
           {/* Modal content */}
           <div 
-            className="relative w-full max-w-5xl max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-full sm:max-w-5xl mx-auto max-h-[90vh] flex flex-col p-4 sm:p-6 bg-black rounded-lg"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking on image
           >
             {/* Close button */}
@@ -246,17 +246,19 @@ const Gallery: React.FC = () => {
               {/* Previous button */}
               <button 
                 onClick={goToPreviousImage}
-                className="absolute left-4 z-50 text-white p-2 text-4xl"
+                className="absolute left-2 sm:left-4 z-50 text-white p-2 text-3xl sm:text-4xl"
               >
                 &lsaquo;
               </button>
+
 
               {/* Image */}
               <img 
                 src={galleryImages[currentImageIndex].src} 
                 alt={galleryImages[currentImageIndex].title} 
-                className="max-h-[80vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+                className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg shadow-2xl"
               />
+
               
               {/* Next button */}
               <button 
@@ -269,12 +271,13 @@ const Gallery: React.FC = () => {
             
             {/* Image title and description */}
             <div className="mt-4 text-center text-white">
-              <h3 className="text-lg sm:text-xl font-light">
-                {galleryImages[currentImageIndex].title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-300 mt-1">
-                {galleryImages[currentImageIndex].description}
-              </p>
+            <h3 className="text-base sm:text-lg font-light">
+              {galleryImages[currentImageIndex].title}
+            </h3>
+            <p className="text-sm sm:text-base text-gray-300 mt-1 px-2">
+              {galleryImages[currentImageIndex].description}
+            </p>
+
             </div>
           </div>
         </div>
