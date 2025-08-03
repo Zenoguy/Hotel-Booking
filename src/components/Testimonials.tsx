@@ -93,20 +93,16 @@ const Testimonials: React.FC = () => {
       `}</style>
       
       <section ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48 overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0 max-w-full"
-        >
-          <source src="https://raw.githubusercontent.com/Zenoguy/Hotel-Booking/main/assets/contact_us.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+        {/* Background Image with Parallax Effect */}
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-fixed z-0 max-w-full"
+          style={{
+            backgroundImage: `url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+          }}
+        />
 
-        {/* Overlay for Readability */}
-        <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none max-w-full" />
+        {/* Enhanced Overlay for Better Readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60 z-10 pointer-events-none max-w-full" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={titleRef} className="text-center mb-8 sm:mb-12 md:mb-16 opacity-0">
