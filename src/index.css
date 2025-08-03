@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure all containers don't exceed viewport width */
+.container {
+  max-width: 100%;
+}
