@@ -46,16 +46,16 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden max-w-full">
       <div
         ref={heroRef}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
         }}
       />
       
-      <div className="relative z-10 h-full flex items-center justify-center text-center text-white">
+      <div className="relative z-10 h-full flex items-center justify-center text-center text-white w-full">
         <div className="max-w-4xl mx-auto px-6">
           <h1
             ref={titleRef}

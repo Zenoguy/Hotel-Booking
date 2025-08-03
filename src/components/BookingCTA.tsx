@@ -48,22 +48,22 @@ const BookingCTA: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 lg:py-56 overflow-hidden"
+      className="relative py-24 sm:py-32 lg:py-56 overflow-hidden max-w-full"
     >
       {/* Parallax Background */}
       <div
         ref={backgroundRef}
-        className="absolute top-0 left-0 w-full h-[200%] bg-cover bg-center"
+        className="absolute top-0 left-0 w-full h-[200%] bg-cover bg-center max-w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
         }}
       />
 
       {/* Smooth scroll gradient overlays */}
-      <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none max-w-full" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none max-w-full" />
 
-      <div className="relative z-30 container mx-auto px-4 sm:px-6">
+      <div className="relative z-30 container mx-auto px-4 sm:px-6 max-w-full">
         <div
           ref={contentRef}
           className="max-w-4xl mx-auto text-center text-white"

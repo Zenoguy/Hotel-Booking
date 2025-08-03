@@ -162,11 +162,11 @@ const Dining: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="dining" className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
+    <section ref={sectionRef} id="dining" className="relative py-16 sm:py-20 md:py-24 overflow-hidden max-w-full">
       {/* Optimized Parallax Background */}
       <div
         ref={backgroundRef}
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center w-full"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
           backfaceVisibility: 'hidden', // Prevent flickering
@@ -174,7 +174,7 @@ const Dining: React.FC = () => {
         }}
       />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 max-w-full">
         <div ref={contentRef} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white mb-4 sm:mb-6">
             Fine Dining at <span className="text-amber-400">Unique</span>
